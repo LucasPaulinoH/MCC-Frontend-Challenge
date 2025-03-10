@@ -5,6 +5,7 @@ import Register from "../pages/Register";
 import { useEffect, useState } from "react";
 import { onAuthStateChanged, User } from "firebase/auth";
 import { FIREBASE_AUTH } from "@/utils/firebaseConfig";
+import SearchProvider from "@/context/SearchContext";
 
 const AppRoutes = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -14,22 +15,24 @@ const AppRoutes = () => {
   }, []);
 
   return (
-    <BrowserRouter>
-      <Routes>
-        {!user ? (
-          <>
-            <Route path="/login" element={<Login />} />
-            <Route path="*" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-          </>
-        ) : (
-          <>
-            <Route path="/" element={<Home />} />
-            <Route path="*" element={<Home />} />
-          </>
-        )}
-      </Routes>
-    </BrowserRouter>
+    <SearchProvider>
+      <BrowserRouter>
+        <Routes>
+          {!user ? (
+            <>
+              <Route path="/login" element={<Login />} />
+              <Route path="*" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+            </>
+          ) : (
+            <>
+              <Route path="/" element={<Home />} />
+              <Route path="*" element={<Home />} />
+            </>
+          )}
+        </Routes>
+      </BrowserRouter>
+    </SearchProvider>
   );
 };
 

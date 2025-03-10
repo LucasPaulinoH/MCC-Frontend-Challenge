@@ -1,10 +1,11 @@
 import { handleSignout } from "./functions";
+import { FiLogOut } from "react-icons/fi";
 
 const SignOutButton = () => {
   return (
-    <button className="cursor-pointer" onClick={handleSignout}>
-      Sair
-    </button>
+    <div className="cursor-pointer" onClick={handleSignout}>
+      <FiLogOut size={20}/>
+    </div>
   );
 };
 

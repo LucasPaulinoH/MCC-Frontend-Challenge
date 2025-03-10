@@ -1,9 +1,9 @@
-import TextInput from "@/components/TextInput";
+import TextInput, { DEFAULT_INPUT_STYLES } from "@/components/TextInput";
 import { FormEvent, useRef } from "react";
 import { handleRegister } from "./functions";
 import Button from "@/components/Button";
 import BackButton from "@/components/Button/BackButton";
-import { AppContainer } from "@/styles/shared";
+import { AppContainer, DEFAULT_ICON_SIZE } from "@/styles/shared";
 import { FiCheck } from "react-icons/fi";
 
 const Register = () => {
@@ -35,17 +35,36 @@ const Register = () => {
           onSubmit={handleRegisterClick}
           className="flex flex-col items-center gap-5"
         >
-          <TextInput label="Nome de usuário *" type="text" ref={usernameRef} />
-          <TextInput label="Email *" type="email" ref={emailRef} />
-          <TextInput label="Senha *" type="password" ref={passwordRef} />
+          <TextInput
+            label="Nome de usuário *"
+            type="text"
+            ref={usernameRef}
+            className={DEFAULT_INPUT_STYLES}
+          />
+          <TextInput
+            label="Email *"
+            type="email"
+            ref={emailRef}
+            className={DEFAULT_INPUT_STYLES}
+          />
+          <TextInput
+            label="Senha *"
+            type="password"
+            ref={passwordRef}
+            className={DEFAULT_INPUT_STYLES}
+          />
           <TextInput
             label="Confirme a senha *"
             type="password"
             ref={confirmPasswordRef}
+            className={DEFAULT_INPUT_STYLES}
           />
 
           <div className="mt-5 w-full">
-            <Button label="Confirmar cadastro" icon={<FiCheck />} />
+            <Button
+              label="Confirmar cadastro"
+              icon={<FiCheck size={DEFAULT_ICON_SIZE} />}
+            />
           </div>
         </form>
       </div>
