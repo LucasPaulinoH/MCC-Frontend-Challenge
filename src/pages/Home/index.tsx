@@ -26,7 +26,7 @@ const Home = () => {
       : paginatedCountries;
 
   return (
-    <LoggedContainer>
+    <LoggedContainer hideSearchBar={false}>
       <div className="w-full h-full items-center justify-center">
         {search.length === 0 && totalPages && (
           <div className="w-full flex items-center justify-between gap-2 mb-12">
