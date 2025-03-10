@@ -7,4 +7,10 @@ export type Country = {
   capital: string[];
   region: string;
   languages: Record<string, string>;
+  area: number;
+  population: number;
+  maps: { googleMaps: string };
+  timezones: string[];
+  currencies: Record<string, { name: string; symbol: string }>;
+  coatOfArms: { png: string; svg: string };
 };

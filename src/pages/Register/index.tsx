@@ -43,7 +43,7 @@ const Register = () => {
       <div
         className={`w-full max-w-[400px] ${COLUMN_FULL_CENTERED_STYLES} gap-10 px-10`}
       >
-        <h1 className="font-bold text-2xl">HELLO WORLD</h1>
+        <h1 className="font-bold text-2xl">Hello, World!</h1>
 
         <form
           onSubmit={handleRegisterClick}

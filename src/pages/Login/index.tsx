@@ -9,12 +9,16 @@ import {
 } from "@/styles/shared";
 import { FiLogIn } from "react-icons/fi";
 import useCustomSearchParams from "@/hooks/useSearchParams";
+import useSearch from "@/hooks/useSearch";
 
 const Login = () => {
   const navigate = useNavigate();
 
   const { setSearchParams } = useCustomSearchParams();
   useEffect(() => setSearchParams({}), []);
+
+  const { setSearch } = useSearch();
+  setSearch("");
 
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
