@@ -9,6 +9,7 @@ import {
 import { FiArrowLeft, FiCheck } from "react-icons/fi";
 import useCustomSearchParams from "@/hooks/useSearchParams";
 import { useNavigate } from "react-router-dom";
+import { APP_LOGO } from "@/utils/stringUtils";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -43,7 +44,7 @@ const Register = () => {
       <div
         className={`w-full max-w-[400px] ${COLUMN_FULL_CENTERED_STYLES} gap-10 px-10`}
       >
-        <h1 className="font-bold text-2xl">Hello, World!</h1>
+        <h1 className="font-bold text-2xl">{APP_LOGO}</h1>
 
         <form
           onSubmit={handleRegisterClick}

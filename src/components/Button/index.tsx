@@ -12,7 +12,7 @@ const Button = (props: ButtonProps) => {
   return (
     <button
       type="submit"
-      className="cursor-pointer w-full font-semibold flex items-center justify-center gap-3 border rounded-md duration-100 p-2"
+      className="cursor-pointer w-full text-button-color bg-button-color font-semibold flex items-center justify-center gap-3 border rounded-md duration-100 p-2"
       onClick={onClick}
     >
       {icon}

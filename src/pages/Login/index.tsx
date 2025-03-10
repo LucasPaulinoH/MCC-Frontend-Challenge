@@ -10,6 +10,7 @@ import {
 import { FiLogIn } from "react-icons/fi";
 import useCustomSearchParams from "@/hooks/useSearchParams";
 import useSearch from "@/hooks/useSearch";
+import { APP_LOGO } from "@/utils/stringUtils";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -34,7 +35,7 @@ const Login = () => {
       <div
         className={`w-full max-w-[400px] ${COLUMN_FULL_CENTERED_STYLES} gap-10 px-10`}
       >
-        <h1 className="font-bold text-2xl">Hello, World!</h1>
+        <h1 className="font-bold text-2xl">{APP_LOGO}</h1>
 
         <form
           onSubmit={handleLoginClick}
