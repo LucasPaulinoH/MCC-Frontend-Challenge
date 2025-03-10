@@ -7,17 +7,17 @@ import {
 } from "react";
 
 interface SearchContextType {
-  search: string | null;
-  setSearch: Dispatch<SetStateAction<string | null>>;
+  search: string;
+  setSearch: Dispatch<SetStateAction<string>>;
 }
 
 export const SearchContext = createContext<SearchContextType>({
-  search: null,
+  search: "",
   setSearch: () => {},
 });
 
 const SearchProvider = ({ children }: { children: ReactNode }) => {
-  const [search, setSearch] = useState<string | null>(null);
+  const [search, setSearch] = useState<string>("");
 
   return (
     <SearchContext.Provider value={{ search, setSearch }}>

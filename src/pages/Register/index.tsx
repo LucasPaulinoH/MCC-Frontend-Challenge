@@ -1,12 +1,21 @@
 import TextInput, { DEFAULT_INPUT_STYLES } from "@/components/TextInput";
-import { FormEvent, useRef } from "react";
+import { FormEvent, useEffect, useRef } from "react";
 import { handleRegister } from "./functions";
 import Button from "@/components/Button";
-import BackButton from "@/components/Button/BackButton";
-import { AppContainer, DEFAULT_ICON_SIZE } from "@/styles/shared";
-import { FiCheck } from "react-icons/fi";
+import {
+  COLUMN_FULL_CENTERED_STYLES,
+  DEFAULT_ICON_SIZE,
+} from "@/styles/shared";
+import { FiArrowLeft, FiCheck } from "react-icons/fi";
+import useCustomSearchParams from "@/hooks/useSearchParams";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const navigate = useNavigate();
+
+  const { setSearchParams } = useCustomSearchParams();
+  useEffect(() => setSearchParams({}), []);
+
   const usernameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
@@ -23,17 +32,22 @@ const Register = () => {
   };
 
   return (
-    <AppContainer>
-      <div className="absolute self-start left-0 top-0">
-        <BackButton />
+    <div className={`w-screen h-screen ${COLUMN_FULL_CENTERED_STYLES}`}>
+      <div
+        className="cursor-pointer p-2 absolute self-start left-0 top-0"
+        onClick={() => navigate("/login")}
+      >
+        <FiArrowLeft size={DEFAULT_ICON_SIZE} />
       </div>
 
-      <div className="flex flex-col items-center gap-10">
+      <div
+        className={`w-full max-w-[400px] ${COLUMN_FULL_CENTERED_STYLES} gap-10 px-10`}
+      >
         <h1 className="font-bold text-2xl">HELLO WORLD</h1>
 
         <form
           onSubmit={handleRegisterClick}
-          className="flex flex-col items-center gap-5"
+          className={`w-full ${COLUMN_FULL_CENTERED_STYLES} gap-5`}
         >
           <TextInput
             label="Nome de usuário *"
@@ -68,7 +82,7 @@ const Register = () => {
           </div>
         </form>
       </div>
-    </AppContainer>
+    </div>
   );
 };
 

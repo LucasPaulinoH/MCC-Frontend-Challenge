@@ -1,26 +1,33 @@
-import restCountriesApi from "@/services/restCountriesApi";
+import { useCountries } from "@/hooks/useCountries";
 import { Country } from "@/types/Country";
-import { useQuery } from "@tanstack/react-query";
+import { useMemo } from "react";
 
-const fetchCountries = async () => {
-  try {
-    return await restCountriesApi.getAllCountries();
-  } catch (error) {
-    console.error("Error fetching countries: ", error);
-  }
-};
-
-export const useCountries = () => {
-  return useQuery({
-    queryKey: ["countries"],
-    queryFn: fetchCountries,
-    retry: 2,
-  });
-};
-
-export const filterCountryBySearch = (country: Country, search: string) =>
-  country.name.common.toLowerCase().includes(search.toLowerCase()) ||
-  country.region.toLowerCase().includes(search.toLowerCase()) ||
-  country.capital?.some((capital) =>
-    capital.toLowerCase().includes(search.toLowerCase())
+export const filterCountryBySearch = (country: Country, search: string) => {
+  return (
+    country.name.common.toLowerCase().includes(search.toLowerCase()) ||
+    country.region.toLowerCase().includes(search.toLowerCase()) ||
+    country.capital?.some((capital) =>
+      capital.toLowerCase().includes(search.toLowerCase())
+    )
   );
+};
+
+const SINGLE_PAGE_SIZE = 10;
+
+export const usePaginatedCountries = (page: number) => {
+  const { data: countries, isLoading } = useCountries();
+
+  const paginatedCountries = useMemo(() => {
+    const start = (page - 1) * SINGLE_PAGE_SIZE;
+
+    return countries?.slice(start, start + SINGLE_PAGE_SIZE);
+  }, [countries, page]);
+
+  return {
+    allCountries: countries,
+    paginatedCountries,
+    isLoading,
+    totalPages:
+      countries && Math.max(1, Math.ceil(countries.length / SINGLE_PAGE_SIZE)),
+  };
+};

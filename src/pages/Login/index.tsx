@@ -1,13 +1,20 @@
 import TextInput, { DEFAULT_INPUT_STYLES } from "@/components/TextInput";
-import { FormEvent, useRef } from "react";
+import { FormEvent, useEffect, useRef } from "react";
 import { handleLogin } from "./functions";
 import Button from "@/components/Button";
 import { useNavigate } from "react-router-dom";
-import { AppContainer, DEFAULT_ICON_SIZE } from "@/styles/shared";
+import {
+  COLUMN_FULL_CENTERED_STYLES,
+  DEFAULT_ICON_SIZE,
+} from "@/styles/shared";
 import { FiLogIn } from "react-icons/fi";
+import useCustomSearchParams from "@/hooks/useSearchParams";
 
 const Login = () => {
   const navigate = useNavigate();
+
+  const { setSearchParams } = useCustomSearchParams();
+  useEffect(() => setSearchParams({}), []);
 
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
@@ -19,15 +26,17 @@ const Login = () => {
   };
 
   return (
-    <AppContainer>
-      <div className="flex flex-col items-center gap-10">
+    <div className={`w-screen h-screen ${COLUMN_FULL_CENTERED_STYLES}`}>
+      <div
+        className={`w-full max-w-[400px] ${COLUMN_FULL_CENTERED_STYLES} gap-10 px-10`}
+      >
         <h1 className="font-bold text-2xl">Hello, World!</h1>
 
         <form
           onSubmit={handleLoginClick}
-          className="flex flex-col items-center gap-8"
+          className={`w-full ${COLUMN_FULL_CENTERED_STYLES} gap-10`}
         >
-          <div className="flex flex-col items-center gap-5">
+          <div className={`w-full ${COLUMN_FULL_CENTERED_STYLES} gap-6`}>
             <TextInput
               label="Email *"
               type="email"
@@ -44,7 +53,6 @@ const Login = () => {
 
           <Button label="Entrar" icon={<FiLogIn size={DEFAULT_ICON_SIZE} />} />
         </form>
-
         <p>
           Ainda não possui uma conta?{" "}
           <span
@@ -55,7 +63,7 @@ const Login = () => {
           </span>
         </p>
       </div>
-    </AppContainer>
+    </div>
   );
 };
 
