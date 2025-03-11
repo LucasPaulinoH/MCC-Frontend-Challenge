@@ -55,6 +55,8 @@ Siga os passos abaixo para executar o projeto localmente:
 
 1. **Configure as variáveis de ambiente**:
 
+    Primeiramente é necessário criar um projeto no console do Firebase e habilitar o recurso `Authentication`.
+
    Crie um arquivo `.env` na raiz do projeto e adicione as seguintes variáveis:
 
     ```env
@@ -68,7 +70,7 @@ Siga os passos abaixo para executar o projeto localmente:
     VITE_REST_COUNTRIES_API_URL=https://restcountries.com/v3.1
     ```
 
-    _Nota: Substitua os valores das credenciais pelas respectivas credenciais do seu projeto Firebase Auth._
+    _Nota: Substitua os valores pelas respectivas credenciais do seu projeto Firebase Auth._
 
 2. **Inicie o servidor de desenvolvimento**:
 
