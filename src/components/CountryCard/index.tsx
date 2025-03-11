@@ -19,7 +19,7 @@ const CountryCard = (props: CountryCardProps) => {
 
   return (
     <div
-      className="cursor-pointer max-w-[320px] hover:scale-[1.1] transition-all flex flex-col gap-3"
+      className="cursor-pointer max-w-[320px] hover:scale-[1.1] transition-all flex flex-col gap-3 text-justify"
       onClick={handleClick}
     >
       <img

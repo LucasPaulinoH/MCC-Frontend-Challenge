@@ -8,7 +8,7 @@ interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const DEFAULT_INPUT_STYLES =
-  "min-w-full h-[30px] p-[.5rem] rounded-[.4rem] border-1 border-[rgba(0,0,0,.5)]";
+  "w-full h-[30px] p-[.5rem] rounded-[.4rem] border-1 border-[rgba(0,0,0,.5)]";
 
 const TextInput = (props: TextInputProps) => {
   const { label, value, setValue, ref, ...others } = props;

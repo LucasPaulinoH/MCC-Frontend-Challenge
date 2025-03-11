@@ -18,7 +18,7 @@ const Navbar = (props: NavbarProps) => {
   const { currentUser } = FIREBASE_AUTH;
 
   return (
-    <div className="w-full h-16 fixed text-button-color bg-button-color top-0 gap-10 bg-default-color flex items-center px-6 justify-between z-10">
+    <div className="w-full h-16 fixed top-0 gap-10 bg-default-color flex items-center px-6 justify-between z-10">
       <h1
         className="font-bold cursor-pointer text-lg"
         onClick={() => navigate("/")}
@@ -27,11 +27,13 @@ const Navbar = (props: NavbarProps) => {
       </h1>
 
       {!hideSearchBar ? (
-        <div className="max-w-[300px] w-full">
+        <div className="w-full max-w-[400px]">
           <TextInput
             type="text"
             placeholder="Search a country..."
-            className={DEFAULT_INPUT_STYLES.concat(" h-full text-default-color bg-default-color")}
+            className={DEFAULT_INPUT_STYLES.concat(
+              " h-full text-default-color bg-default-color"
+            )}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
