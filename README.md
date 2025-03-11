@@ -12,8 +12,9 @@ A aplicação está hospedada no Vercel e pode ser acessada através do seguinte
 
 ## Funcionalidades
 
-- **Autenticação de Usuário**: Permite que os usuários se registrem e façam login utilizando o Firebase Auth.
-- **Listagem de Países**: Exibe uma lista paginada de países com informações básicas com filtro de busca para encontrar países específicos.
+- **Cadastro**: Novos usuários podem ser cadastrados através do Firebase Auth;
+- **Login**: Permite que usuários autenticados acessem a aplicação;
+- **Listagem de Países**: Exibe uma lista paginada de países com informações básicas e filtro de busca para encontrar países específicos;
 - **Detalhes do País**: Ao selecionar um país, o usuário pode visualizar informações detalhadas sobre ele.
 
 ## Tecnologias
@@ -33,55 +34,55 @@ Siga os passos abaixo para executar o projeto localmente:
 
 1. **Clone o repositório**:
 
-```bash
- git clone https://github.com/LucasPaulinoH/hello-world-atlas.git
- cd hello-world-atlas
-```
+   ```bash
+   git clone https://github.com/LucasPaulinoH/hello-world-atlas.git
+   cd hello-world-atlas
+   ```
 
 2. **Instale as dependências**:
 
-npm
+    npm
 
-```bash
-npm install
-```
+    ```bash
+    npm install
+    ```
 
-Ou yarn
+    Ou yarn
 
-```bash
-yarn
-```
+    ```bash
+    yarn
+    ```
 
 1. **Configure as variáveis de ambiente**:
 
    Crie um arquivo `.env` na raiz do projeto e adicione as seguintes variáveis:
 
-```env
-VITE_FIREBASE_API_KEY=sua_api_key
-VITE_FIREBASE_AUTH_DOMAIN=seu_auth_domain
-VITE_FIREBASE_PROJECT_ID=seu_project_id
-VITE_FIREBASE_STORAGE_BUCKET=seu_storage_bucket
-VITE_FIREBASE_MESSAGING_SENDER_ID=seu_messaging_sender_id
-VITE_FIREBASE_APP_ID=seu_app_id
+    ```env
+    VITE_FIREBASE_API_KEY=sua_api_key
+    VITE_FIREBASE_AUTH_DOMAIN=seu_auth_domain
+    VITE_FIREBASE_PROJECT_ID=seu_project_id
+    VITE_FIREBASE_STORAGE_BUCKET=seu_storage_bucket
+    VITE_FIREBASE_MESSAGING_SENDER_ID=seu_messaging_sender_id
+    VITE_FIREBASE_APP_ID=seu_app_id
 
-VITE_REST_COUNTRIES_API_URL=https://restcountries.com/v3.1
-```
+    VITE_REST_COUNTRIES_API_URL=https://restcountries.com/v3.1
+    ```
 
-_Nota: Substitua os valores das credenciais pelas respectivas credenciais do seu projeto Firebase Auth._
+    _Nota: Substitua os valores das credenciais pelas respectivas credenciais do seu projeto Firebase Auth._
 
 2. **Inicie o servidor de desenvolvimento**:
 
-  npm
+    npm
 
-  ```bash
-  npm run dev
-  ```
+    ```bash
+    npm run dev
+    ```
 
-   Ou yarn
+    Ou yarn
 
-  ```bash
-  yarn dev
-  ```
+    ```bash
+    yarn dev
+    ```
 
 3. **Acesse a aplicação**:
 
